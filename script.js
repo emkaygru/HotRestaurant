@@ -5,8 +5,6 @@ var path = require('path');
 var app = express();
 var PORT = 3000;
 
-app.use(bodyParser.json());
-app.use(bodyParser.text());
 
 var customers = [];
 var waitlist = [];
@@ -45,7 +43,11 @@ var tables = [
 
 ]
 
-app.post('/api/reserve')
+app.post('/api/reserve', function(req, res){
+  console.log('Your reservation has been submitted!');
+  console.log(req.body)
+})
+
 function isBooked (){
   if (tables.length <=5) {
     isBooked = true;
@@ -55,4 +57,6 @@ function isBooked (){
   res.json(isBooked);
 }
 
-app.
+app.listen(PORT, function() {
+  console.log('App is listening on PORT' + PORT)
+})
