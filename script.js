@@ -45,6 +45,7 @@ var tables = [
 
 ]
 
+app.post('/api/reserve')
 function isBooked (){
   if (tables.length <=5) {
     isBooked = true;
